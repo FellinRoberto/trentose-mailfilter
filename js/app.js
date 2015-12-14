@@ -31,7 +31,7 @@ var MailModel = {
     
     contains : function(msg){
         for(var i=0;i<this.rules.length;i++){
-            if(msg.indexOf(this.rules[i])>-1){
+            if(msg.from.indexOf(this.rules[i].from)>-1 || msg.subject.indexOf(this.rules[i].subject)>-1){
                 return false;
             }
         }
@@ -72,7 +72,7 @@ var view = {
     render: function(msgs){
         var htmlStr = '';
         msgs.forEach(function(msg){
-            htmlStr += '<li>'+msg +'</li>';
+            htmlStr += '<li>'+msg.from +'</li>';
         });
         this.result.html( htmlStr );
     }

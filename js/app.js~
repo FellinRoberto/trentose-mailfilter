@@ -72,7 +72,9 @@ var view = {
     render: function(msgs){
         var htmlStr = '';
         msgs.forEach(function(msg){
-            htmlStr += '<li>'+msg +'</li>';
+            htmlStr += '<li>'+
+                    msg +
+                    '</li>';
         });
         this.result.html( htmlStr );
     }
